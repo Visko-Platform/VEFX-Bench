@@ -1,0 +1,26 @@
+[
+    {
+        "original": "attribute_change_original.mp4",
+        "edited": "attribute_change_edited.mp4",
+        "instruction": "Change the color of the red industrial trailer to a bright yellow while maintaining the texture and appearance of the metal surface.",
+        "category": "Attribute Change"
+    },
+    {
+        "original": "object_removal_original.mp4",
+        "edited": "object_removal_edited.mp4",
+        "instruction": "Remove the woman with the grey backpack walking on the right side of the frame.",
+        "category": "Object Removal"
+    },
+    {
+        "original": "style_transfer_original.mp4",
+        "edited": "style_transfer_edited.mp4",
+        "instruction": "Restore the natural, realistic colors to the entire scene, replacing the current black and white style with a full-color rendition.",
+        "category": "Style Transfer"
+    },
+    {
+        "original": "camera_zoom_original.mp4",
+        "edited": "camera_zoom_edited.mp4",
+        "instruction": "Perform a smooth zoom in on the distant snowy mountain peaks to create a more immersive view.",
+        "category": "Camera Motion"
+    }
+]
