@@ -49,7 +49,8 @@ def main():
     parser = argparse.ArgumentParser(description="Multi-GPU video edit scoring")
     parser.add_argument("--csv", required=True, help="Input CSV")
     parser.add_argument("--output", default="results.csv", help="Output CSV")
-    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B")
+    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B",
+                        help='Model path, HF ID, or alias ("4B" / "32B")')
     parser.add_argument("--num_gpus", type=int, default=4)
     # Internal worker args
     parser.add_argument("--_worker", action="store_true", help=argparse.SUPPRESS)

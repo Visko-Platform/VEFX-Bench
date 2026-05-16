@@ -23,7 +23,8 @@ def main():
     parser = argparse.ArgumentParser(description="Batch score video edits")
     parser.add_argument("--csv", required=True, help="Input CSV with columns: original_video, edited_video, instruction")
     parser.add_argument("--output", default="results.csv", help="Output CSV path")
-    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B")
+    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B",
+                        help='Model path, HF ID, or alias ("4B" / "32B")')
     parser.add_argument("--device", default="cuda")
     args = parser.parse_args()
 

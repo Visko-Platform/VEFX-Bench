@@ -8,6 +8,7 @@
 [💻 Code](https://github.com/Visko-Platform/VEFX-Bench) •
 [🤗 Dataset](https://huggingface.co/datasets/xiangbog/VEFX-Bench) •
 [🤗 Model (4B)](https://huggingface.co/xiangbog/VEFX-Reward-4B) •
+[🤗 Model (32B)](https://huggingface.co/viskoplatform/VEFX-Reward-32B) •
 [🏆 Leaderboard](https://vefx-leaderboard.com/) •
 [🌐 Project Page](https://xiangbogaobarry.github.io/VEFX-Bench/)
 
@@ -84,7 +85,9 @@ Each demo shows the **original video** (left) alongside the **edited video** (ri
 | Model | Backbone | Params | HuggingFace | Status |
 |---|---|---|---|---|
 | **VEFX-Reward-4B** | Qwen3-VL-4B-Instruct | 4B | [xiangbog/VEFX-Reward-4B](https://huggingface.co/xiangbog/VEFX-Reward-4B) | ✅ Available |
-| VEFX-Reward-32B | Qwen3-VL-32B-Instruct | 32B | TBD | 🔜 Coming soon |
+| **VEFX-Reward-32B** | Qwen3-VL-32B-Instruct | 32B | [viskoplatform/VEFX-Reward-32B](https://huggingface.co/viskoplatform/VEFX-Reward-32B) | ✅ Available |
+
+> The 32B model needs ~65 GB VRAM in bfloat16. Use `VEFXReward("viskoplatform/VEFX-Reward-32B", device="cuda")` for one-line inference.
 
 ---
 
@@ -107,14 +110,31 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-> **Requirements:** Python ≥ 3.10, CUDA GPU, ~10 GB VRAM (bfloat16). Make sure your PyTorch CUDA version matches your driver.
+> **Requirements:** Python ≥ 3.10, CUDA GPU. The 4B model needs ~10 GB VRAM, the 32B model needs ~65 GB VRAM (bfloat16). Make sure your PyTorch CUDA version matches your driver.
+
+### Pick your model size
+
+```python
+from vefx_reward import VEFXReward
+
+# Fast / low-VRAM (~10 GB)
+model = VEFXReward("xiangbog/VEFX-Reward-4B", device="cuda")
+
+# Higher accuracy (~65 GB VRAM, e.g. a single H100 80 GB)
+model = VEFXReward("viskoplatform/VEFX-Reward-32B", device="cuda")
+```
 
 ### Score a Video Edit (Python API)
 
 ```python
 from vefx_reward import VEFXReward
 
+# 4B (default, ~10 GB VRAM)
 model = VEFXReward("xiangbog/VEFX-Reward-4B", device="cuda")
+
+# Or one-click 32B (highest accuracy, ~65 GB VRAM)
+# model = VEFXReward("viskoplatform/VEFX-Reward-32B", device="cuda")
+# model = VEFXReward("32B", device="cuda")  # same thing — short alias
 
 scores = model.score(
     original_video="examples/sample_videos/object_removal_original.mp4",
@@ -128,10 +148,14 @@ print(scores)
 ### CLI Usage
 
 ```bash
+# 4B
 python examples/quick_start.py \
     --original examples/sample_videos/object_removal_original.mp4 \
     --edited examples/sample_videos/object_removal_edited.mp4 \
     --instruction "Remove the woman with the grey backpack walking on the right side of the frame."
+
+# 32B (one-click — alias automatically resolves to viskoplatform/VEFX-Reward-32B)
+python examples/quick_start.py --model 32B --run_samples
 ```
 
 ### Score All Included Samples

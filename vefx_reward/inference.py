@@ -29,6 +29,12 @@ DEFAULT_NUM_CLASSES = 4
 DEFAULT_OUTPUT_DIM = 3
 DIMS = ["IF", "RQ", "EE"]
 
+# Shortcut aliases → HuggingFace model IDs.
+MODEL_REGISTRY = {
+    "4B": "xiangbog/VEFX-Reward-4B",
+    "32B": "viskoplatform/VEFX-Reward-32B",
+}
+
 SPECIAL_TOKENS = [
     "<|VQ_reward|>", "<|MQ_reward|>", "<|TA_reward|>",
     "<|IF_reward|>", "<|RQ_reward|>", "<|EE_reward|>",
@@ -67,6 +73,9 @@ class VEFXReward:
         fps: float = DEFAULT_FPS,
         max_frame_pixels: int = DEFAULT_MAX_FRAME_PIXELS,
     ):
+        # Resolve shortcut aliases like "4B" / "32B".
+        model_path = MODEL_REGISTRY.get(model_path, model_path)
+
         self.device = device
         self.dtype = dtype
         self.fps = fps

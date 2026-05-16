@@ -23,7 +23,8 @@ def main():
     parser.add_argument("--original", help="Path to original video")
     parser.add_argument("--edited", help="Path to edited video")
     parser.add_argument("--instruction", help="Editing instruction")
-    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B", help="Model path or HF ID")
+    parser.add_argument("--model", default="xiangbog/VEFX-Reward-4B",
+                        help='Model path, HF ID, or alias ("4B" / "32B")')
     parser.add_argument("--device", default="cuda", help="Device (cuda / cpu)")
     parser.add_argument("--run_samples", action="store_true", help="Score all included sample video pairs")
     args = parser.parse_args()
