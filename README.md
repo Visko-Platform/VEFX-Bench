@@ -1,3 +1,9 @@
+## 🔥 News
+
+> **[May 16, 2026]** 🚀 **VEFX-Reward-32B is now publicly available!** Our 32B reward model — merged from Qwen3-VL-32B-Instruct — delivers significantly stronger scoring quality. Download it now: [🤗 viskoplatform/VEFX-Reward-32B](https://huggingface.co/viskoplatform/VEFX-Reward-32B). One-click inference: `VEFXReward("32B")`.
+
+---
+
 <div align="center">
 
 # VEFX-Bench
