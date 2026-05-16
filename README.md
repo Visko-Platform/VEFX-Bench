@@ -201,9 +201,9 @@ Score multiple edits sequentially. Each sample is processed independently to avo
 ## 📝 Citation
 
 ```bibtex
-@article{gao2025vefxbench,
-  title={VEFX-Bench: Benchmarking Generic Video Editing and Visual Effects},
-  author={Xiangbo Gao and Sicong Jiang and Bangya Liu and Xinghao Chen and Minglai Yang and Siyuan Yang and Mingyang Wu and Jiongze Yu and Qi Zheng and Haozhi Wang and Jiayi Zhang and Jared Yang and Jie Yang and Zihan Wang and Qing Yin and Zhengzhong Tu},
+@article{gao2026vefx,
+  title={VEFX-Bench: A Holistic Benchmark for Generic Video Editing and Visual Effects},
+  author={Gao, Xiangbo and Jiang, Sicong and Liu, Bangya and Chen, Xinghao and Yang, Minglai and Yang, Siyuan and Wu, Mingyang and Yu, Jiongze and Zheng, Qi and Wang, Haozhi and others},
   journal={arXiv preprint arXiv:2604.16272},
   year={2026}
 }
